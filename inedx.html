@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Professional Website</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="light">
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <img src="" alt="Logo" class="logo"/>
+      <span class="site-name">My Professional Website</span>
+    </div>
+    <div class="mode-toggle">
+      <button id="modeToggle" title="Toggle Mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main class="grid-container">
+    <!-- Card Example (Repeat 8 Times) -->
+    <div class="card">
+      <img src="assets/movies.jpg" alt="Image 1">
+      <h2>Strooma</h2>
+      <p>Short description for box 1 goes here.</p>
+      <a href="page1.html" class="btn">Go Further →</a>
+    </div>
+    
+    <!-- Repeat as needed -->
+    <div class="card">
+      <img src="assets/song.jpg" alt="Image 2">
+      <h2>Groovia</h2>
+      <p>Short description for box 2 goes here.</p>
+      <a href="page2.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/study.jpg" alt="Image 3">
+      <h2>Mentora</h2>
+      <p>Short description for box 3 goes here.</p>
+      <a href="page3.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/course.jpg" alt="Image 4">
+      <h2>Skillora</h2>
+      <p>Short description for box 4 goes here.</p>
+      <a href="page4.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/cricket.jpg" alt="Image 5">
+      <h2>Stumpa</h2>
+      <p>Short description for box 5 goes here.</p>
+      <a href="page5.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/app.jpg" alt="Image 6">
+      <h2>Premora</h2>
+      <p>Short description for box 6 goes here.</p>
+      <a href="page6.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/gamora.jpg" alt="Image 7">
+      <h2>Gamora</h2>
+      <p>Short description for box 7 goes here.</p>
+      <a href="page7.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/notora.jpg" alt="Image 8">
+      <h2>Notora</h2>
+      <p>Short description for box 8 goes here.</p>
+      <a href="page8.html" class="btn">Go Further →</a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Image 8">
+      <h2></h2>
+      <p>Short description for box 8 goes here.</p>
+      <a href="page8.html" class="btn">Go Further →</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 My Professional Website. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    :root {
+  --light-bg: #ffffff;
+  --light-text: #000000;
+  --dark-bg: #121212;
+  --dark-text: #ffffff;
+  --primary: #0077cc;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.mode-toggle button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: inherit;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.95rem;
+  color: inherit;
+}
+
+.btn {
+  display: block;
+  margin: 0 1rem 1rem;
+  padding: 0.6rem;
+  text-align: center;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+body.dark footer {
+  background-color: #1f1f1f;
+  color: #aaa;
+}
+
+</style>
+<script>
+    const toggleBtn = document.getElementById('modeToggle');
+const body = document.body;
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  body.classList.toggle('light');
+
+  // Change emoji based on mode
+  if (body.classList.contains('dark')) {
+    toggleBtn.textContent = '☀️';
+  } else {
+    toggleBtn.textContent = '🌙';
+  }
+});
+
+</script>
