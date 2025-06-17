@@ -2,670 +2,239 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SKS Hitech - Clean Water. Clean Future.</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Univora</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --bg-day: #00cfff;
+      --text-day: #000;
+      --bg-night: #020024;
+      --text-night: #fff;
+      --card-bg: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-day);
+      color: var(--text-day);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-night);
+      color: var(--text-night);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      background-color: inherit;
+      z-index: 1000;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-section img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .theme-toggle {
+      font-size: 28px;
+      cursor: pointer;
+      position: relative;
+      z-index: 100;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background: #fff;
+    }
+
+    .hero h1 {
+      margin: 10px 0;
+    }
+
+    .slideshow {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+    }
+
+    .slideshow img {
+      width: 100%;
+      display: none;
+    }
+
+    .slideshow img.active {
+      display: block;
+    }
+
+    .enjoy {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      margin-top: auto;
+      padding: 10px 15px;
+      border: none;
+      background: #0077ff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background: #005ecc;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo-wrapper">
-      <div class="logo">Univora</div>
+  <header>
+    <div class="logo-section">
+      <img src="logo.png" alt="Univora Logo">
+      <h2>Univora</h2>
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-   
-  </nav>
-  
-
-
-  <!-- Hero Section -->
-  <header id="hero">
-    <div class="hero-image" style="background-image: url('assets/movies.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/song.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/cricket.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/cooling.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/water-wastewatertreatment.jpg');"></div>
-
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>Univora - One Platform, Every World!</h1>
-        <p><b>Welcome to Univora –</b>
-             your all-in-one digital platform bringing together<br> movies, music, 
-             premium apps, live cricket, study tools, skills training, and <br>mini-games.
-             A unified hub built to simplify digital life for students,<br> creators, and entertainment lovers</p>
-        <a href="#contact" class="cta-btn">Get a Free Quote</a>
-      </div>
-    </div>
-
-    <div class="dots">
-      <div class="dot" onclick="showSlide(0)"></div>
-      <div class="dot" onclick="showSlide(1)"></div>
-      <div class="dot" onclick="showSlide(2)"></div>
-      <div class="dot" onclick="showSlide(3)"></div>
-      <div class="dot" onclick="showSlide(4)"></div>
-    </div>
+    <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
   </header>
 
-
-
-
-<div class="container">
-    <div class="grid">
-<section id="services">
-  <h2>ENJOY</h2>
-  <p>Comprehensive MEP solutions for all your needs</p>
-
-  <div class="grid">
-    <div class="card" onclick="openModal(0)">
-      <img src="assets/movie full.jpg" alt="Water Treatment">
-      <h3>Strooma - Movies & Shows</h3>
-      <p>All your favorite movies & shows, from across the<br> world.<br>
-    🎬 Netflix, Prime, Hotstar, Disney+, Crunchyroll & more – all in one place.
-</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🎬
-    </a>
+  <section class="hero">
+    <div class="slideshow">
+      <img src="assets/course.jpg" class="active" />
+      <img src="assets/cricket.jpg" />
+      <img src="assets/notice-3.jpg" />
+      <img src="img4.jpg" />
+      <img src="img5.jpg" />
     </div>
-    <style>
-   .card-btn {
-  display: block;
-  width: calc(100% - 30px); /* full width with side padding */
-  margin: 25px auto 10px auto; /* top margin + center alignment */
-  padding: 12px;
-  background-color: #00BFFF;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 6px; /* rectangular but slightly softened edges */
-  text-align: center;
-  font-weight: 600;
-  font-size: 15px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+    <h1>Welcome to Univora</h1>
+    <p>Discover apps that enhance your daily life</p>
+  </section>
 
-.card-btn:hover {
-  background-color: #005fa3;
-  transform: translateY(-1px);
-}</style>
+  <section class="enjoy">
+    <h2>ENJOY</h2>
+    <p>Comprehensive MEP solutions for all your needs</p>
+    <div class="card-container">
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
 
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
 
-    <div class="card" onclick="openModal(1)">
-      <img src="assets/song.jpg" alt="Cooling Water">
-      <h3>Groovia - Feel the Beat</h3>
-      <p>Your vibe Your world of sound.
-🎧 Stream Hindi & global songs with pure groove
-🔥 Trending hits, chill playlists, zero interruptions
-💿 Dive in and feel the rhythm!
-</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🎧
-    </a>
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
+
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
+
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
+
+      <div class="card">
+        <img src="sample.jpg" alt="Strooma">
+        <h3>Strooma - Movies & Shows</h3>
+        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
+        <button onclick="location.href='strooma.html'">Explore</button>
+      </div>
+      <!-- Add other 7 cards similarly -->
     </div>
+  </section>
 
-    <div class="card" onclick="openModal(2)">
-      <img src="assets/study.jpg" alt="RO System">
-      <h3>Mentora</h3>
-      <p>All Top Platforms in One Platform.<br>
-    Pw, Unacademy, Aakash, Motion Learning, Next Topper,  Carrier will, etc. - Notes & Lectures in one place</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🧠
-    </a>
-    </div>
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slideshow img");
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 5000);
 
-    <div class="card" onclick="openModal(3)">
-      <img src="assets/course.jpg" alt="Swimming Pool">
-      <h3>Skillora - Master 100+ Skills</h3>
-      <p>Learn Everything, Master Anything.
-    From building your body to building your brand - Skillora is your one-stop destination for mastering skills that shape your life.</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🌊
-    </a>
-    </div>
-
-    <div class="card" onclick="openModal(4)">
-      <img src="assets/notora.jpg" alt="AHU Service">
-      <h3>Notora - All Study Notes</h3>
-      <p>Notora, your all-in-One study material hub.<br>
-        From concise notes to full lecture content - everything you need to study smart, not hard.
-      </p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 📖
-    </a>
-    </div>
-
-    <div class="card" onclick="openModal(5)">
-      <img src="assets/app.jpg" alt="Waste Management">
-      <h3>Premora - Premium App Hub</h3>
-      <p>Discover Premora, your ultimate destination<br>
-    for all top-tier premium apps - in one place.
-entertainment to education, music to movies, tools to tutorials.</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🔓
-    </a>
-    </div>
-
-    <div class="card" onclick="openModal(6)">
-      <img src="assets/cricket.jpg" alt="">
-      <h3>Stumpa - Cricket King</h3>
-      <p>Stumpa - Live Cricket, Every Match, Every Moment!<br>
-        Watch live cricket from across the world - <br>anytime, anywhere - only on stumpa.<br></p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 💫
-    </a>
-    </div>
-
-    <div class="card" onclick="openModal(7)">
-      <img src="assets/gamora.jpg" alt="fire alarm and detection">
-      <h3>Gamora - 100+ Mini Games</h3>
-      <p>Gamora, your all-in-One gaming world!<br>
-    A powerful collection of mini-games built by us, for the players. play action, puzzle, sports & more..🎮</p>
-      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
-      Dive In 🎮
-    </a>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<!-- Modals -->
-<div id="serviceModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Service Image">
-    <h3 id="modalTitle"></h3>
-    <ul id="modalList"></ul>
-  </div>
-</div>
-
-  <!-- Modals -->
-  <div id="serviceModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <img id="modalImage" src="" alt="Service Image">
-      <h3 id="modalTitle"></h3>
-      <ul id="modalList"></ul>
-    </div>
-  </div>
-
-
-  
-
-<section id="industries">
-  <h2>Notices!</h2>
-  <div class="grid">
-    <div class="card" data-message="This is the full notice for Notice-1.">
-      <img src="assets/notice-1-empty.jpg" alt="notice-1" />
-      <p>Notice-1</p>
-    </div>
-    <div class="card" data-message="This is the full notice for Notice-2.">
-      <img src="assets/notice-2-empty.jpg" alt="notice-2" />
-      <p>Notice-2</p>
-    </div>
-    <div class="card" data-message="This is the full notice for Notice-3.">
-      <img src="assets/notice-3-empty.jpg" alt="notice-3" />
-      <p>Notice-3</p>
-    </div>
-    <div class="card" data-message="This is the full notice for Notice-4.">
-      <img src="assets/notice-4-empty.jpg" alt="notice-4" />
-      <p>Notice-4</p>
-    </div>
-  </div>
-</section>
-
-<!-- NEW notice modal (no conflict with existing modal) -->
-<div class="notice-modal-box" id="noticeModalBox" style="display: none;">
-  <div class="notice-modal-content">
-    <span class="close-notice-btn" id="closeNoticeBox">&times;</span>
-    <p id="noticeTextBox">Notice content here...</p>
-  </div>
-</div>
-
-<style>
-     #industries {
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  #industries h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-
-  .grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 10px;
-    background: #f9f9f9;
-    transition: transform 0.3s;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-  }
-
-  .industry-img {
-    width: 100%;
-    height: auto;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .card p {
-    margin-top: 10px;
-    font-weight: 600;
-    font-size: 16px;
-  }
-
-  @media (max-width: 600px) {
-    .industry-img {
-      max-height: 140px;
+    function toggleTheme() {
+      const body = document.body;
+      const toggle = document.querySelector('.theme-toggle');
+      body.classList.toggle("dark-mode");
+      toggle.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
     }
-  }
-
-
-  
-
-
-  .notice-modal-box {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-}
-
-.notice-modal-content {
-  background: #fff;
-  padding: 30px 20px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  font-size: 18px;
-  position: relative;
-}
-
-.close-notice-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #444;
-}
-
-@media (max-width: 600px) {
-  .notice-modal-content {
-    font-size: 16px;
-    padding: 20px;
-  }
-}
-
-
-</style>
-  
-
-  
-<section id="clients">
-  <h2>Our Clients</h2>
-  <div class="carousel-container" id="carouselContainer">
-    <button class="arrow left" id="leftArrow">&#10094;</button>
-
-    <div class="carousel-track" id="carouselTrack">
-      <div class="cert-card">
-        <img src="assets/result.png" alt="Cert 1" />
-        <p>Blue Dart</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result1.png" alt="Cert 2" />
-        <p>Transcon & Sheth Creators</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result2.png" alt="Cert 3" />
-        <p>Jyothy Labs</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result3.jpg" alt="Cert 4" />
-        <p>Lemon Tree Hotels</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result4.jpg" alt="Cert 5" />
-        <p>MICL</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result5.jpg" alt="Cert 6" />
-        <p>Mittal Astrology</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result7.jpg" alt="Cert 7" />
-        <p>Mittal</p>
-      </div>
-      <div class="cert-card">
-        <img src="assets/result8.jpg" alt="Cert 8" />
-        <p>Bhoomi Samarth</p>
-      </div>
-    </div>
-
-    <button class="arrow right" id="rightArrow">&#10095;</button>
-  </div>
-</section>
-
-<style>
-    #certifications {
-  padding: 40px 20px;
-  background: #f5f5f5;
-  text-align: center;
-}
-
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-  max-width: 90%;
-  margin: auto;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease-in-out;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.cert-card {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  width: 250px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  text-align: center;
-}
-
-.cert-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #444;
-  color: white;
-  border: none;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-}
-
-.arrow.left {
-  left: -10px;
-}
-
-.arrow.right {
-  right: -10px;
-}
-
-</style>
-
-<script>
-    const track = document.getElementById("carouselTrack");
-const leftArrow = document.getElementById("leftArrow");
-const rightArrow = document.getElementById("rightArrow");
-const container = document.getElementById("carouselContainer");
-
-const cardWidth = 270; // width + gap
-
-let scrollAmount = 0;
-
-// Scroll Right
-function scrollRight() {
-  if (scrollAmount + container.offsetWidth >= track.scrollWidth) {
-    scrollAmount = 0; // reset to start
-  } else {
-    scrollAmount += cardWidth;
-  }
-  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
-}
-
-// Scroll Left
-function scrollLeft() {
-  if (scrollAmount <= 0) {
-    scrollAmount = track.scrollWidth - container.offsetWidth; // jump to end
-  } else {
-    scrollAmount -= cardWidth;
-  }
-  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
-}
-
-// Event Listeners
-rightArrow.addEventListener("click", scrollRight);
-leftArrow.addEventListener("click", scrollLeft);
-
-// Auto Slide
-setInterval(scrollRight, 5000);
-
-</script>
-
-
-  
- 
-
-  
-
-  
-  <!-- Contact Section -->
-<!-- Include in <head> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Contact Section -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Get in touch with us for any inquiries about our services or to request a quote. Our team is ready to assist you.</p>
-
-  
-
-  
-    
-    
-
-  <!-- Social Media Contact Box -->
-  <div class="social-box">
-    <div class="social-card whatsapp">
-      <i class="fa fa-whatsapp"></i>
-      <h4>WhatsApp</h4>
-      <a href="https://wa.me/+918369478858" target="_blank" class="chat-button">Chat Now</a>
-    </div>
-    <div class="social-card telegram">
-      <i class="fa fa-telegram"></i>
-      <h4>Telegram</h4>
-      <a href="https://t.me/+TJ4OQedW4PE4MTdl" target="_blank" class="chat-button">Chat Now</a>
-    </div>
-    <div class="social-card linkedin">
-      <i class="fa fa-linkedin"></i>
-      <h4>LinkedIn</h4>
-      <a href="https://www.linkedin.com/in/sks-hitech-solution-llp-b7771236b/" target="_blank" class="chat-button">Chat Now</a>
-    </div>
-    <div class="social-card facebook">
-      <i class="fa fa-facebook"></i>
-      <h4>Facebook</h4>
-      <a href="https://www.facebook.com/profile.php?id=61577630032814&sk=about" target="_blank" class="chat-button">Chat Now</a>
-    </div>
-    <div class="social-card instagram">
-      <i class="fa fa-instagram"></i>
-      <h4>Instagram</h4>
-      <a href="https://www.instagram.com/skshitechsolution/" target="_blank" class="chat-button">Chat Now</a>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- <footer>
-    <p>&copy; 2025 SKS HITECH. All rights reserved.</p>
-  </footer> -->
-  <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-about">
-      <h3>SKS Hitech Solution LLP</h3>
-      <p>Delivering eco-friendly & cost-effective wastewater solutions with innovation and 24/7 support.</p>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact Us</h4>
-      <ul>
-        <li><strong>Address:</strong> Office No. E20, Amar Social Welfare Society,GNC Jaiswal Nagar,<br> Near Punjab Dairy, Malad East, Mumbai - 400097</li>
-        <li><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></li>
-        <li><strong>Email:</strong> <a href="mailto:info@skshitech.com">info@skshitech.com</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-social">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook"><img src="assets/2023_Facebook_icon.svg.webp" alt="Facebook" /></a>
-        <a href="#" aria-label="Instagram"><img src="assets/Instagram_logo_2016.svg.webp" alt="Instagram" /></a>
-        <a href="#" aria-label="LinkedIn"><img src="assets/LinkedIn_icon.svg.webp" alt="LinkedIn" /></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 SKS Hitech Solution LLP. All rights reserved.</p>
-  </div>
-</footer>
-<style>
-  .footer {
-  background-color: #002f5f;
-  color: #ffffff;
-  padding: 3rem 1rem 1rem;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.footer-about,
-.footer-contact,
-.footer-social {
-  flex: 1 1 300px;
-}
-
-.footer h3,
-.footer h4 {
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.footer p,
-.footer ul li {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.footer a {
-  color: #cce7ff;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-.social-icons a {
-  margin-right: 0.5rem;
-  display: inline-block;
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1rem;
-}
-
-</style>
-<script>
-  // Select only this notice modal's elements
-  const noticeCards = document.querySelectorAll('#industries .card');
-  const noticeModal = document.getElementById('noticeModalBox');
-  const noticeText = document.getElementById('noticeTextBox');
-  const closeNotice = document.getElementById('closeNoticeBox');
-
-  // Open modal on click
-  noticeCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const message = card.getAttribute('data-message');
-      noticeText.textContent = message;
-      noticeModal.style.display = 'flex';
-    });
-  });
-
-  // Close modal via close button
-  closeNotice.addEventListener('click', () => {
-    noticeModal.style.display = 'none';
-  });
-
-  // Close modal by clicking outside
-  window.addEventListener('click', (e) => {
-    if (e.target === noticeModal) {
-      noticeModal.style.display = 'none';
-    }
-  });
-</script>
-
-
-
+  </script>
 </body>
 </html>
