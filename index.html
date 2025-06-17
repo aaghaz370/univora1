@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Univora</title>
@@ -9,11 +10,17 @@
  
   <style>
     :root {
-      --bg-day: #00cfff;
-      --text-day: #000;
-      --bg-night: #020024;
-      --text-night: #2ecc71;
-      --card-bg-day: #fff;
+      
+      --day-bg: #fef8e7;
+      --day-text: #2b2b2b;
+      --night-bg: #1b1f3b;
+      --night-text: #f4f4f4;
+      --card-bg-day: #ffffff;
+      --card-bg-night: #2d3250;
+      --accent: #ff6f61;
+      --clients-bg-day:#fef8e7;
+      --clients-bg-night:#1b1f3b;
+      --social-card-bg-night:#2d3250;
       
     }
 
@@ -25,10 +32,26 @@
       transition: all 0.3s ease-in-out;
     }
 
-    .dark-mode {
+    /* .dark-mode {
       background-color: var(--bg-night);
       color: var(--text-night);
      
+    } */
+     body.night-mode {
+      background: var(--night-bg);
+      color: var(--night-text);
+    }
+    body.night-mode .card {
+      background: var(--card-bg-night);
+    }
+    body.night-mode header {
+      background: rgba(30,30,50,0.9);
+    }
+    body.night-mode #clients{
+      background: var(--clients-bg-night)
+    }
+    body.night-mode .social-card{
+      background: var(--social-card-bg-night)
     }
 
     header {
@@ -358,7 +381,7 @@
 
   #clients {
   padding: 40px 20px;
-  background: #00caff;
+  /* background: #00caff; */
   text-align: center;
 }
 
@@ -435,15 +458,24 @@
 .social-card {
   background: #fff;
   width: 160px;
-  padding: 15px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+   transition: transform 0.3s ease;
 }
 
+.social-card:hover {
+  transform: translateY(-5px);
+}
 .chat-button {
+  margin-top:8px;
   display: inline-block;
-  padding: 8px 14px;
+  padding: 6px 14px;
   background-color: #002f5f;
   color: white;
   border-radius: 6px;
@@ -475,6 +507,10 @@
   <header>
     <div class="logo-section">
       <img src="assets/logo.jpg" alt="Univora Logo">
+      <ul class="nav-links">
+      <li><a href="#indutries"></a></li>
+      
+    </ul>
       <h2>Univora</h2>
     </div>
     <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
@@ -494,7 +530,7 @@
         <p>Welcome to SKS Hitech Solution LLP, a leading provider of advanced<br>
         sewage treatment solutions — dedicated to transforming wastewater<br>
         into clean, reusable resources for industries and communities.</p>
-        <a href="#contact" class="cta-btn">Get a Free Quote</a>
+        <a href="#industries" class="cta-btn">Get a Free Quote</a>
       </div>
     </div>
 
@@ -715,12 +751,19 @@
   showSlide(currentSlide); // Show first slide
   setInterval(nextSlide, 5000); // Change every 5 seconds
 
-    function toggleTheme() {
-      const body = document.body;
-      const toggle = document.querySelector('.theme-toggle');
-      body.classList.toggle("dark-mode");
-      toggle.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
+    // function toggleTheme() {
+    //   const body = document.body;
+    //   const toggle = document.querySelector('.theme-toggle');
+    //   body.classList.toggle("dark-mode");
+    //   toggle.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
+    // }
+
+     function toggleTheme() {
+      document.body.classList.toggle('night-mode');
+      document.querySelector('.theme-toggle').textContent = document.body.classList.contains('night-mode') ? '🌙' : '🌞';
     }
+
+   
 
     
     
