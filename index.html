@@ -330,6 +330,99 @@
       transform: scale(1.2);
       background-color: #ffcc00;
     }
+
+    #industries {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  #industries h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    background: #f9f9f9;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .industry-img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card p {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .industry-img {
+      max-height: 140px;
+    }
+  }
+
+  .industry-popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.industry-popup-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  text-align: left;
+}
+
+.industry-popup-content h3 {
+  margin-top: 0;
+}
+
+.industry-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .industry-popup-content {
+    width: 90%;
+    margin-top: 30%;
+  }
+}
+
 </style>
 
   <section class="enjoy">
@@ -403,6 +496,43 @@
     <ul id="modalList"></ul>
   </div>
 </div>
+
+<section id="industries">
+  <h2>Industries We Serve</h2>
+  <div class="grid">
+    <div class="card" onclick="openIndustryPopup('Residential Complexes', 'Notice: Water treatment solutions available for all residential complexes.')">
+  <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="industry-img" />
+  <p>Residential Complexes</p>
+</div>
+
+    <div class="card" onclick="openIndustryPopup('Residential Complexes', 'Notice: Water treatment solutions available for all residential complexes.')">
+  <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="industry-img" />
+  <p>Residential Complexes</p>
+</div>
+
+    <div class="card" onclick="openIndustryPopup('Residential Complexes', 'Notice: Water treatment solutions available for all residential complexes.')">
+  <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="industry-img" />
+  <p>Residential Complexes</p>
+</div>
+
+    <div class="card" onclick="openIndustryPopup('Residential Complexes', 'Notice: Water treatment solutions available for all residential complexes.')">
+  <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="industry-img" />
+  <p>Residential Complexes</p>
+</div>
+
+  </div>
+</section>
+
+<!-- Industry Modal -->
+<div id="industryPopup" class="industry-popup">
+  <div class="industry-popup-content">
+    <span class="industry-close" onclick="closeIndustryPopup()">&times;</span>
+    <h3 id="industryHeading">Industry Name</h3>
+    <p id="industryText">Here are the detailed notices or description for the selected industry.</p>
+  </div>
+</div>
+
+
 
   <script>
     const slides = document.querySelectorAll('.hero-image');
@@ -586,6 +716,29 @@
     window.onclick = function(event) {
       if (event.target == modal) closeModal();
     }
+
+    
+  const industryPopup = document.getElementById("industryPopup");
+  const industryHeading = document.getElementById("industryHeading");
+  const industryText = document.getElementById("industryText");
+
+  function openIndustryPopup(title, content) {
+    industryHeading.textContent = title;
+    industryText.textContent = content;
+    industryPopup.style.display = "block";
+  }
+
+  function closeIndustryPopup() {
+    industryPopup.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    if (event.target == industryPopup) {
+      closeIndustryPopup();
+    }
+  }
+
+
   </script>
 </body>
 </html>
