@@ -3,37 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Professional Website</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>SKS Hitech - Clean Water. Clean Future.</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body class="light">
-  <!-- Header -->
-  <header>
-    <div class="logo-area">
-      <img src="assets/logo.jpg" alt="Logo" class="logo"/>
-      <span class="site-name">Univora</span>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-wrapper">
+      <div class="logo">Univora</div>
     </div>
-    <div class="mode-toggle">
-      <button id="modeToggle" title="Toggle Mode">🌙</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-  </header>
+   
+  </nav>
 
   <!-- Hero Section -->
   <header id="hero">
-    <div class="hero-image" style="background-image: url('assets/course full.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/hospital.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/camera1.jpg');"></div>
+    <div class="hero-image" style="background-image: url('assets/movies.jpg');"></div>
+    <div class="hero-image" style="background-image: url('assets/song.jpg');"></div>
+    <div class="hero-image" style="background-image: url('assets/cricket.jpg');"></div>
     <div class="hero-image" style="background-image: url('assets/cooling.jpg');"></div>
     <div class="hero-image" style="background-image: url('assets/water-wastewatertreatment.jpg');"></div>
 
     <div class="hero-overlay">
       <div class="hero-content">
         <h1>Univora - One Platform, Every World!</h1>
-        <p>Welcome to Univora, all-in-one digital platform bringing together<br>
-        movies, music, premium apps, live cricket, study tools, skill training &<br>
-        mini-games.<br>
-        A unified hub built to simplicity digital life for students,<br>
-      creators, and entertainment lovers.</p>
+        <p><b>Welcome to Univora –</b>
+             your all-in-one digital platform bringing together<br> movies, music, 
+             premium apps, live cricket, study tools, skills training, and <br>mini-games.
+             A unified hub built to simplify digital life for students,<br> creators, and entertainment lovers</p>
         <a href="#contact" class="cta-btn">Get a Free Quote</a>
       </div>
     </div>
@@ -48,357 +49,478 @@
   </header>
 
 
-  <!-- Main Grid -->
-  <main class="grid-container">
-    <!-- Card Example (Repeat 8 Times) -->
-    <div class="card">
-      <img src="assets/movies.jpg" alt="Image 1">
-      <h2>Strooma</h2>
-      <p>Short description for box 1 goes here.</p>
-      <a href="page1.html" class="btn">Go Further →</a>
-    </div>
-    
-    <!-- Repeat as needed -->
-    <div class="card">
-      <img src="assets/song.jpg" alt="Image 2">
-      <h2>Groovia</h2>
-      <p>Short description for box 2 goes here.</p>
-      <a href="page2.html" class="btn">Go Further →</a>
-    </div>
 
-    <div class="card">
-      <img src="assets/study.jpg" alt="Image 3">
-      <h2>Mentora</h2>
-      <p>Short description for box 3 goes here.</p>
-      <a href="page3.html" class="btn">Go Further →</a>
-    </div>
 
-    <div class="card">
-      <img src="assets/course.jpg" alt="Image 4">
-      <h2>Skillora</h2>
-      <p>Short description for box 4 goes here.</p>
-      <a href="page4.html" class="btn">Go Further →</a>
-    </div>
 
-    <div class="card">
-      <img src="assets/cricket.jpg" alt="Image 5">
-      <h2>Stumpa</h2>
-      <p>Short description for box 5 goes here.</p>
-      <a href="page5.html" class="btn">Go Further →</a>
-    </div>
+<section id="services">
+  <h2>ENJOY</h2>
+  <p>Comprehensive MEP solutions for all your needs</p>
 
-    <div class="card">
-      <img src="assets/app.jpg" alt="Image 6">
-      <h2>Premora</h2>
-      <p>Short description for box 6 goes here.</p>
-      <a href="page6.html" class="btn">Go Further →</a>
+  <div class="grid">
+    <div class="card" onclick="openModal(0)">
+      <img src="assets/movie full.jpg" alt="Water Treatment">
+      <h3>Strooma - Movies & Shows</h3>
+      <p>All your favorite movies & shows, from across the world.<br>
+    🎬 Netflix, Prime, Hotstar, Disney+, Crunchyroll & more – all in one place.
+</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
     </div>
+    <style>
+   .card-btn {
+  display: block;
+  width: calc(100% - 30px); /* full width with side padding */
+  margin: 25px auto 10px auto; /* top margin + center alignment */
+  padding: 12px;
+  background-color: #00BFFF;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px; /* rectangular but slightly softened edges */
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-    <div class="card">
-      <img src="assets/gamora.jpg" alt="Image 7">
-      <h2>Gamora</h2>
-      <p>Short description for box 7 goes here.</p>
-      <a href="page7.html" class="btn">Go Further →</a>
-    </div>
+.card-btn:hover {
+  background-color: #005fa3;
+  transform: translateY(-1px);
+}</style>
 
-    <div class="card">
-      <img src="assets/notora.jpg" alt="Image 8">
-      <h2>Notora</h2>
-      <p>Short description for box 8 goes here.</p>
-      <a href="page8.html" class="btn">Go Further →</a>
+
+    <div class="card" onclick="openModal(1)">
+      <img src="assets/song.jpg" alt="Cooling Water">
+      <h3>Groovia - Feel the Beat</h3>
+      <p>Your vibe Your world of sound.
+🎧 Stream Hindi & global songs with pure groove
+🔥 Trending hits, chill playlists, zero interruptions
+💿 Dive in and feel the rhythm!
+</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
     </div>
 
-    <div class="card">
-      <img src="assets/notora.jpg" alt="Image 8">
-      <h2></h2>
-      <p>Short description for box 8 goes here.</p>
-      <a href="page8.html" class="btn">Go Further →</a>
+    <div class="card" onclick="openModal(2)">
+      <img src="assets/study.jpg" alt="RO System">
+      <h3>Mentora</h3>
+      <p>All Top Platforms in One Platform.<br>
+    Pw, Unacademy, Aakash, Motion Learning, Next Topper, etc. - Notes & Lectures in one place</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 My Professional Website. All rights reserved.</p>
-  </footer>
+    <div class="card" onclick="openModal(3)">
+      <img src="assets/course.jpg" alt="Swimming Pool">
+      <h3>Skillora - Master 100+ Skills</h3>
+      <p>Complete swimming pool maintenance and chemical treatment.</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
+    </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <div class="card" onclick="openModal(4)">
+      <img src="assets/notora.jpg" alt="AHU Service">
+      <h3>Notora - All Study Notes</h3>
+      <p>Download chapter-wise notes, mindmaps & PDFs with smart filters.</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
+    </div>
+
+    <div class="card" onclick="openModal(5)">
+      <img src="assets/app.jpg" alt="Waste Management">
+      <h3>Premora - Premium App Hub</h3>
+      <p>All-in-One premium App Hub.<br>
+    Explore & install every top premium app and software - fast, smooth & easy. </p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
+    </div>
+
+    <div class="card" onclick="openModal(6)">
+      <img src="assets/cricket.jpg" alt="">
+      <h3>Stumpa - Cricket King</h3>
+      <p>Live Cricket Streaming in All Qualities.<br>
+    Every Match. Every Ball. Only on Stumpa</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
+    </div>
+
+    <div class="card" onclick="openModal(7)">
+      <img src="assets/gamora.jpg" alt="fire alarm and detection">
+      <h3>Gamora - 100+ Mini Games</h3>
+      <p>Reliable fire alarm systems with fast detection and early warning solutions.</p>
+      <a href="water-treatment.html" class="card-btn" onclick="event.stopPropagation();">
+      Learn More →
+    </a>
+    </div>
+  </div>
+</section>
+
+<!-- Modals -->
+<div id="serviceModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Service Image">
+    <h3 id="modalTitle"></h3>
+    <ul id="modalList"></ul>
+  </div>
+</div>
+
+  <!-- Modals -->
+  <div id="serviceModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Service Image">
+      <h3 id="modalTitle"></h3>
+      <ul id="modalList"></ul>
+    </div>
+  </div>
+
+
+  <section id="industries">
+  <h2>Industries We Serve</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="complex-img" />
+      <p>Residential Complexes</p>
+    </div>
+    <div class="card">
+      <img src="assets/hospital.jpg" alt="Hospitals" class="industry-img" />
+      <p>Hospitals</p>
+    </div>
+    <div class="card">
+      <img src="assets/hotels.jpg" alt="Hotels & Resorts" class="industry-img" />
+      <p>Hotels & Resorts</p>
+    </div>
+    <div class="card">
+      <img src="assets/factories.jpg" alt="Factories" class="industry-img" />
+      <p>Factories</p>
+    </div>
+  </div>
+</section>
+
+  
+
+  
+<section id="clients">
+  <h2>Our Clients</h2>
+  <div class="carousel-container" id="carouselContainer">
+    <button class="arrow left" id="leftArrow">&#10094;</button>
+
+    <div class="carousel-track" id="carouselTrack">
+      <div class="cert-card">
+        <img src="assets/result.png" alt="Cert 1" />
+        <p>Blue Dart</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result1.png" alt="Cert 2" />
+        <p>Transcon & Sheth Creators</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result2.png" alt="Cert 3" />
+        <p>Jyothy Labs</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result3.jpg" alt="Cert 4" />
+        <p>Lemon Tree Hotels</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result4.jpg" alt="Cert 5" />
+        <p>MICL</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result5.jpg" alt="Cert 6" />
+        <p>Mittal Astrology</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result7.jpg" alt="Cert 7" />
+        <p>Mittal</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result8.jpg" alt="Cert 8" />
+        <p>Bhoomi Samarth</p>
+      </div>
+    </div>
+
+    <button class="arrow right" id="rightArrow">&#10095;</button>
+  </div>
+</section>
 
 <style>
-   * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    #hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-image {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-      transform: scale(1);
-    }
-
-    .hero-image.active {
-      opacity: 1;
-      transform: scale(1.05);
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    }
-
-    .hero-content {
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-btn {
-      background-color: #ffcc00;
-      color: #002f5f;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #e6b800;
-    }
-
-    .dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      height: 12px;
-      width: 12px;
-      background-color: #fff;
-      border-radius: 50%;
-      opacity: 0.5;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .dot.active {
-      opacity: 1;
-      transform: scale(1.2);
-      background-color: #ffcc00;
-    }
-
-    :root {
-  --light-bg: #ffffff;
-  --light-text: #000000;
-  --dark-bg: #121212;
-  --dark-text: #ffffff;
-  --primary: #0077cc;
-  --shadow: rgba(0, 0, 0, 0.1);
+    #certifications {
+  padding: 40px 20px;
+  background: #f5f5f5;
+  text-align: center;
 }
 
-body.light {
-  background-color: var(--light-bg);
-  color: var(--light-text);
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 90%;
+  margin: auto;
 }
 
-body.dark {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cert-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.cert-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.arrow.left {
+  left: -10px;
+}
+
+.arrow.right {
+  right: -10px;
+}
+
+</style>
+
+<script>
+    const track = document.getElementById("carouselTrack");
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+const container = document.getElementById("carouselContainer");
+
+const cardWidth = 270; // width + gap
+
+let scrollAmount = 0;
+
+// Scroll Right
+function scrollRight() {
+  if (scrollAmount + container.offsetWidth >= track.scrollWidth) {
+    scrollAmount = 0; // reset to start
+  } else {
+    scrollAmount += cardWidth;
+  }
+  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
+}
+
+// Scroll Left
+function scrollLeft() {
+  if (scrollAmount <= 0) {
+    scrollAmount = track.scrollWidth - container.offsetWidth; // jump to end
+  } else {
+    scrollAmount -= cardWidth;
+  }
+  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
+}
+
+// Event Listeners
+rightArrow.addEventListener("click", scrollRight);
+leftArrow.addEventListener("click", scrollLeft);
+
+// Auto Slide
+setInterval(scrollRight, 5000);
+
+</script>
+
+
+  
+ 
+
+  
+
+  
+  <!-- Contact Section -->
+<!-- Include in <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Get in touch with us for any inquiries about our services or to request a quote. Our team is ready to assist you.</p>
+
+  
+
+  
+    
+    
+
+  <!-- Social Media Contact Box -->
+  <div class="social-box">
+    <div class="social-card whatsapp">
+      <i class="fa fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.me/+918369478858" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card telegram">
+      <i class="fa fa-telegram"></i>
+      <h4>Telegram</h4>
+      <a href="https://t.me/+TJ4OQedW4PE4MTdl" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card linkedin">
+      <i class="fa fa-linkedin"></i>
+      <h4>LinkedIn</h4>
+      <a href="https://www.linkedin.com/in/sks-hitech-solution-llp-b7771236b/" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card facebook">
+      <i class="fa fa-facebook"></i>
+      <h4>Facebook</h4>
+      <a href="https://www.facebook.com/profile.php?id=61577630032814&sk=about" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card instagram">
+      <i class="fa fa-instagram"></i>
+      <h4>Instagram</h4>
+      <a href="https://www.instagram.com/skshitechsolution/" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- <footer>
+    <p>&copy; 2025 SKS HITECH. All rights reserved.</p>
+  </footer> -->
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>SKS Hitech Solution LLP</h3>
+      <p>Delivering eco-friendly & cost-effective wastewater solutions with innovation and 24/7 support.</p>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><strong>Address:</strong> Office No. E20, Amar Social Welfare Society,GNC Jaiswal Nagar,<br> Near Punjab Dairy, Malad East, Mumbai - 400097</li>
+        <li><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@skshitech.com">info@skshitech.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><img src="assets/2023_Facebook_icon.svg.webp" alt="Facebook" /></a>
+        <a href="#" aria-label="Instagram"><img src="assets/Instagram_logo_2016.svg.webp" alt="Instagram" /></a>
+        <a href="#" aria-label="LinkedIn"><img src="assets/LinkedIn_icon.svg.webp" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 SKS Hitech Solution LLP. All rights reserved.</p>
+  </div>
+</footer>
+<style>
+  .footer {
+  background-color: #002f5f;
+  color: #ffffff;
+  padding: 3rem 1rem 1rem;
   font-family: 'Segoe UI', sans-serif;
 }
 
-header {
-  background-color: var(--primary);
-  color: white;
-  padding: 1rem 2rem;
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-}
-
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.logo {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-}
-
-.site-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.mode-toggle button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: space-between;
   gap: 2rem;
-  padding: 2rem;
 }
 
-.card {
-  background-color: inherit;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px var(--shadow);
-  overflow: hidden;
-  transition: all 0.3s ease;
+.footer-about,
+.footer-contact,
+.footer-social {
+  flex: 1 1 300px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px var(--shadow);
+.footer h3,
+.footer h4 {
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card h2 {
-  margin: 1rem;
-  font-size: 1.2rem;
-}
-
-.card p {
-  margin: 0 1rem 1rem;
+.footer p,
+.footer ul li {
   font-size: 0.95rem;
-  color: inherit;
+  line-height: 1.6;
 }
 
-.btn {
-  display: block;
-  margin: 0 1rem 1rem;
-  padding: 0.6rem;
-  text-align: center;
-  background-color: var(--primary);
-  color: white;
+.footer a {
+  color: #cce7ff;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #005fa3;
+.footer a:hover {
+  text-decoration: underline;
 }
 
-footer {
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons a {
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 1rem;
-  background-color: #f1f1f1;
-  color: #333;
+  margin-top: 2rem;
   font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
 }
-
-body.dark footer {
-  background-color: #1f1f1f;
-  color: #aaa;
-}
-
 
 </style>
-<script>
-  const slides = document.querySelectorAll('.hero-image');
-  const dots = document.querySelectorAll('.dot');
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      dots[i].classList.remove('active');
-    });
-
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  showSlide(currentSlide); // Show first slide
-  setInterval(nextSlide, 5000); // Change every 5 seconds
-
-
-    const toggleBtn = document.getElementById('modeToggle');
-const body = document.body;
-
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  body.classList.toggle('light');
-
-  // Change emoji based on mode
-  if (body.classList.contains('dark')) {
-    toggleBtn.textContent = '☀️';
-  } else {
-    toggleBtn.textContent = '🌙';
-  }
-});
-
-</script>
+</body>
+</html>
