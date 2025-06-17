@@ -505,53 +505,10 @@ footer {
 
     
     
-  #industries {
-    padding: 40px 20px;
-    text-align: center;
-  }
+ 
 
-  #industries h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
 
-  .grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
 
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 10px;
-    background: #f9f9f9;
-    transition: transform 0.3s;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-  }
-
-  .industry-img {
-    width: 100%;
-    height: auto;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .card p {
-    margin-top: 10px;
-    font-weight: 600;
-    font-size: 16px;
-  }
-
-  @media (max-width: 600px) {
-    .industry-img {
-      max-height: 140px;
-    }
-  }
 
   #projects {
   padding: 40px 20px;

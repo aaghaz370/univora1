@@ -187,28 +187,152 @@ entertainment to education, music to movies, tools to tutorials.</p>
   </div>
 
 
-  <section id="industries">
-  <h2>Industries We Serve</h2>
+  <!-- <section id="industries">
+  <h2>Notices!</h2>
   <div class="grid">
     <div class="card">
-      <img src="assets/Residential Complexes.jpg" alt="Residential Complexes" class="complex-img" />
-      <p>Residential Complexes</p>
+      <img src="assets/Residential Complexes.jpg" alt="notice-1" class="notice-1" />
+      <p>Notice-1</p>
     </div>
     <div class="card">
-      <img src="assets/hospital.jpg" alt="Hospitals" class="industry-img" />
-      <p>Hospitals</p>
+      <img src="assets/hospital.jpg" alt="notice-2" class="notice-2" />
+      <p>Notice-2</p>
     </div>
     <div class="card">
-      <img src="assets/hotels.jpg" alt="Hotels & Resorts" class="industry-img" />
-      <p>Hotels & Resorts</p>
+      <img src="assets/hotels.jpg" alt="notice-3" class="notice-3" />
+      <p>Notice-3</p>
     </div>
     <div class="card">
-      <img src="assets/factories.jpg" alt="Factories" class="industry-img" />
-      <p>Factories</p>
+      <img src="assets/factories.jpg" alt="notice-4" class="notice-4" />
+      <p>Notice-4</p>
+    </div>
+  </div>
+</section> -->
+
+<section id="industries">
+  <h2>Notices!</h2>
+  <div class="grid">
+    <div class="card" data-message="This is the full notice for Notice-1.">
+      <img src="assets/Residential Complexes.jpg" alt="notice-1" />
+      <p>Notice-1</p>
+    </div>
+    <div class="card" data-message="This is the full notice for Notice-2.">
+      <img src="assets/hospital.jpg" alt="notice-2" />
+      <p>Notice-2</p>
+    </div>
+    <div class="card" data-message="This is the full notice for Notice-3.">
+      <img src="assets/hotels.jpg" alt="notice-3" />
+      <p>Notice-3</p>
+    </div>
+    <div class="card" data-message="This is the full notice for Notice-4.">
+      <img src="assets/factories.jpg" alt="notice-4" />
+      <p>Notice-4</p>
     </div>
   </div>
 </section>
 
+<!-- NEW notice modal (no conflict with existing modal) -->
+<div class="notice-modal-box" id="noticeModalBox" style="display: none;">
+  <div class="notice-modal-content">
+    <span class="close-notice-btn" id="closeNoticeBox">&times;</span>
+    <p id="noticeTextBox">Notice content here...</p>
+  </div>
+</div>
+
+<style>
+     #industries {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  #industries h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    background: #f9f9f9;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .industry-img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card p {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .industry-img {
+      max-height: 140px;
+    }
+  }
+
+
+  
+
+
+  .notice-modal-box {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.notice-modal-content {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+}
+
+.close-notice-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .notice-modal-content {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+
+</style>
   
 
   
@@ -527,5 +651,36 @@ setInterval(scrollRight, 5000);
 }
 
 </style>
+<script>
+  // Select only this notice modal's elements
+  const noticeCards = document.querySelectorAll('#industries .card');
+  const noticeModal = document.getElementById('noticeModalBox');
+  const noticeText = document.getElementById('noticeTextBox');
+  const closeNotice = document.getElementById('closeNoticeBox');
+
+  // Open modal on click
+  noticeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const message = card.getAttribute('data-message');
+      noticeText.textContent = message;
+      noticeModal.style.display = 'flex';
+    });
+  });
+
+  // Close modal via close button
+  closeNotice.addEventListener('click', () => {
+    noticeModal.style.display = 'none';
+  });
+
+  // Close modal by clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target === noticeModal) {
+      noticeModal.style.display = 'none';
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
