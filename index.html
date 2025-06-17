@@ -401,6 +401,157 @@
   }
 }
 
+  #certifications {
+  padding: 40px 20px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 90%;
+  margin: auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cert-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.cert-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.arrow.left {
+  left: -10px;
+}
+
+.arrow.right {
+  right: -10px;
+}
+
+/* Social Box */
+.social-box {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-box{
+  margin-top:50px;
+  /* display:grid; */
+  /* flex-wrap:wrap; */
+  justify-content: center;
+  gap:1rem;
+}
+
+@media(max-width: 768px) {
+  .social-box {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+
+.social-card {
+  background: #fff;
+  width: 160px;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.social-card i {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.social-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.chat-button {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #002f5f;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.chat-button:hover {
+  background-color: #001e3d;
+}
+
+
+.social-icons a {
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
 </style>
 
   <section class="enjoy">
@@ -510,6 +661,80 @@
   </div>
 </div>
 
+
+<section id="clients">
+  <h2>Our Clients</h2>
+  <div class="carousel-container" id="carouselContainer">
+    <button class="arrow left" id="leftArrow">&#10094;</button>
+
+    <div class="carousel-track" id="carouselTrack">
+      <div class="cert-card">
+        <img src="assets/result.png" alt="Cert 1" />
+        <p>Blue Dart</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result1.png" alt="Cert 2" />
+        <p>Transcon & Sheth Creators</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result2.png" alt="Cert 3" />
+        <p>Jyothy Labs</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result3.jpg" alt="Cert 4" />
+        <p>Lemon Tree Hotels</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result4.jpg" alt="Cert 5" />
+        <p>MICL</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result5.jpg" alt="Cert 6" />
+        <p>Mittal Astrology</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result7.jpg" alt="Cert 7" />
+        <p>Mittal</p>
+      </div>
+      <div class="cert-card">
+        <img src="assets/result8.jpg" alt="Cert 8" />
+        <p>Bhoomi Samarth</p>
+      </div>
+    </div>
+
+    <button class="arrow right" id="rightArrow">&#10095;</button>
+  </div>
+</section>
+
+<!-- Social Media Contact Box -->
+  <div class="social-box">
+    <div class="social-card whatsapp">
+      <i class="fa fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.me/+918369478858" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card telegram">
+      <i class="fa fa-telegram"></i>
+      <h4>Telegram</h4>
+      <a href="https://t.me/+TJ4OQedW4PE4MTdl" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card linkedin">
+      <i class="fa fa-linkedin"></i>
+      <h4>LinkedIn</h4>
+      <a href="https://www.linkedin.com/in/sks-hitech-solution-llp-b7771236b/" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card facebook">
+      <i class="fa fa-facebook"></i>
+      <h4>Facebook</h4>
+      <a href="https://www.facebook.com/profile.php?id=61577630032814&sk=about" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+    <div class="social-card instagram">
+      <i class="fa fa-instagram"></i>
+      <h4>Instagram</h4>
+      <a href="https://www.instagram.com/skshitechsolution/" target="_blank" class="chat-button">Chat Now</a>
+    </div>
+  </div>
+</section>
 
 
   <script>
@@ -717,7 +942,41 @@
     }
   }
 
+ const track = document.getElementById("carouselTrack");
+const leftArrow = document.getElementById("leftArrow");
+const rightArrow = document.getElementById("rightArrow");
+const container = document.getElementById("carouselContainer");
 
+const cardWidth = 270; // width + gap
+
+let scrollAmount = 0;
+
+// Scroll Right
+function scrollRight() {
+  if (scrollAmount + container.offsetWidth >= track.scrollWidth) {
+    scrollAmount = 0; // reset to start
+  } else {
+    scrollAmount += cardWidth;
+  }
+  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
+}
+
+// Scroll Left
+function scrollLeft() {
+  if (scrollAmount <= 0) {
+    scrollAmount = track.scrollWidth - container.offsetWidth; // jump to end
+  } else {
+    scrollAmount -= cardWidth;
+  }
+  track.scrollTo({ left: scrollAmount, behavior: "smooth" });
+}
+
+// Event Listeners
+rightArrow.addEventListener("click", scrollRight);
+leftArrow.addEventListener("click", scrollLeft);
+
+// Auto Slide
+setInterval(scrollRight, 5000);
   </script>
 </body>
 </html>
