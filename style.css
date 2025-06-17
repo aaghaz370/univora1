@@ -12,6 +12,18 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background: #00cfff;
+}
+
+.container {
+  max-width: 1600px; /* increased max width */
+  margin: 0 auto;
+}
+
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -546,25 +558,28 @@ footer {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  justify-items: center;
-  align-items: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 cards max */
+  gap: 20px;
+  padding: 20px 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+
 .card {
-  width: 100%;
-  max-width: 260px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
   overflow: hidden;
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 20px;
 }
+
+
+
 
 .card:hover {
   transform: translateY(-5px);
@@ -610,18 +625,6 @@ footer {
 .card-btn:hover {
   background-color: #005fa3;
   transform: translateY(-1px);
-}
-
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Modal */
