@@ -158,6 +158,7 @@
   .modal-content img {
     max-width: 100%;
     height: auto;
+    border-radius:5px;
     margin-bottom: 20px;
   }
 
@@ -522,16 +523,17 @@
     </div>
   </header>
 
-  <section class="enjoy">
+   <section class="enjoy">
     <h2>ENJOY</h2>
     <p>Comprehensive MEP solutions for all your needs</p>
-    <div class="card-container" onclick="openModal(0)">
+     <div class="card-container" onclick="openModal(0)">
       <div class="card">
         <img src="assets/movies.jpg" alt="Strooma">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
+      </div> 
+
 
       <div class="card">
         <img src="assets/song.jpg" alt="Strooma"onclick="openModal(1)">
@@ -548,58 +550,61 @@
       </div>
 
       <div class="card">
-        <img src="assets/skillora-1.jpg" alt="Strooma"onclick="openModal(7)">
+        <img src="assets/skillora-1.jpg" alt="Strooma"onclick="openModal(3)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="assets/notora.jpg" alt="Strooma"onclick="openModal(3)">
+        <img src="assets/notora.jpg" alt="Strooma"onclick="openModal(4)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="assets/cricket.jpg" alt="Strooma"onclick="openModal(4)">
+        <img src="assets/cricket.jpg" alt="Strooma"onclick="openModal(5)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="assets/gamora.jpg" alt="Strooma"onclick="openModal(5)">
+        <img src="assets/gamora.jpg" alt="Strooma"onclick="openModal(6)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="assets/app.jpg" alt="Strooma"onclick="openModal(6)">
+        <img src="assets/app.jpg" alt="Strooma"onclick="openModal(7)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma"onclick="openModal(7)">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(8)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-      <!-- Add other 7 cards similarly -->
+      </div> 
+      
     </div>
   </section>
 
   <div id="serviceModal" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Service Image">
+    <img id="modalImage" src="" alt="service image">
     <h3 id="modalTitle"></h3>
     <ul id="modalList"></ul>
   </div>
-</div>
+</div> 
+
+
+
 
 <section id="industries">
   <h2>Industries We Serve</h2>
@@ -755,7 +760,7 @@
     const servicesData = [
       {
         title: "Water / Waste Water Treatment",
-        image: "assets/water-wastewatertreatment.jpg",
+        image: "assets/fulltest.jpg",
         points: [
           "STP & ETP Design",
           "Installation & Commissioning",
