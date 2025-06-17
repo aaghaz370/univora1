@@ -10,8 +10,9 @@
       --bg-day: #00cfff;
       --text-day: #000;
       --bg-night: #020024;
-      --text-night: #fff;
-      --card-bg: #fff;
+      --text-night: #2ecc71;
+      --card-bg-day: #fff;
+      
     }
 
     body {
@@ -25,6 +26,7 @@
     .dark-mode {
       background-color: var(--bg-night);
       color: var(--text-night);
+     
     }
 
     header {
@@ -57,32 +59,7 @@
       z-index: 100;
     }
 
-    .hero {
-      text-align: center;
-      padding: 50px 20px 20px;
-      background: #fff;
-    }
-
-    .hero h1 {
-      margin: 10px 0;
-    }
-
-    .slideshow {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      position: relative;
-    }
-
-    .slideshow img {
-      width: 100%;
-      display: none;
-    }
-
-    .slideshow img.active {
-      display: block;
-    }
-
+    
     .enjoy {
       padding: 50px 20px;
       text-align: center;
@@ -97,8 +74,8 @@
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: 12px;
+      background: var(--card-bg-day);
+      border-radius: 3px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
@@ -107,6 +84,7 @@
       align-items: center;
     }
 
+    
     .card:hover {
       transform: translateY(-5px);
     }
@@ -130,9 +108,9 @@
 
     .card button {
       margin-top: auto;
-      padding: 10px 15px;
+      padding: 10px 120px;
       border: none;
-      background: #0077ff;
+      background: #2ecc71;
       color: #fff;
       border-radius: 5px;
       cursor: pointer;
