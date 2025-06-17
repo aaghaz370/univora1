@@ -90,7 +90,7 @@
 
     .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       justify-content: center;
       margin-top: 30px;
@@ -148,6 +148,46 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal-content {
+    background: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .modal-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    color: red;
+  }
+
   </style>
 </head>
 <body>
@@ -295,7 +335,7 @@
   <section class="enjoy">
     <h2>ENJOY</h2>
     <p>Comprehensive MEP solutions for all your needs</p>
-    <div class="card-container">
+    <div class="card-container" onclick="openModal(0)">
       <div class="card">
         <img src="sample.jpg" alt="Strooma">
         <h3>Strooma - Movies & Shows</h3>
@@ -304,49 +344,49 @@
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
       </div>
 
       <div class="card">
-        <img src="sample.jpg" alt="Strooma">
+        <img src="sample.jpg" alt="Strooma"onclick="openModal(0)">
         <h3>Strooma - Movies & Shows</h3>
         <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
         <button onclick="location.href='strooma.html'">Explore</button>
@@ -354,6 +394,15 @@
       <!-- Add other 7 cards similarly -->
     </div>
   </section>
+
+  <div id="serviceModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Service Image">
+    <h3 id="modalTitle"></h3>
+    <ul id="modalList"></ul>
+  </div>
+</div>
 
   <script>
     const slides = document.querySelectorAll('.hero-image');
@@ -384,6 +433,158 @@
       const toggle = document.querySelector('.theme-toggle');
       body.classList.toggle("dark-mode");
       toggle.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
+    }
+
+    const modal = document.getElementById("serviceModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalList = document.getElementById("modalList");
+
+    const servicesData = [
+      {
+        title: "Water / Waste Water Treatment",
+        image: "assets/water-wastewatertreatment.jpg",
+        points: [
+          "STP & ETP Design",
+          "Installation & Commissioning",
+          "24/7 Maintenance Support",
+          "Eco-friendly Technology",
+          "Fully Automated Systems",
+          "Remote Monitoring",
+          "PLC-based Control",
+          "Sludge Handling Solutions",
+          "AMC Available",
+          "Government Compliance"
+        ]
+      },
+      {
+        title: "Cooling / Boiler Water Treatment",
+        image: "assets/cooling.jpg",
+        points: [
+          "Chemical Dosing Systems",
+          "Boiler Descaling",
+          "Cooling Tower Management",
+          "Corrosion Control",
+          "Energy Efficiency",
+          "Online Monitoring",
+          "Certified Chemicals",
+          "Risk Assessment",
+          "Water Quality Testing",
+          "Expert Technicians"
+        ]
+      },
+      {
+        title: "RO / UF System",
+        image: "assets/RO-UF system.jpg",
+        points: [
+          "RO Plant Installation",
+          "UF System Design",
+          "Membrane Cleaning",
+          "Hardness Removal",
+          "TDS Reduction",
+          "Energy-efficient Units",
+          "Annual Maintenance Contract",
+          "Automatic Flushing",
+          "Custom Capacity Design",
+          "User Training Provided"
+        ]
+      },
+      {
+        title: "Swimming Pool Services",
+        image: "assets/swimming.jpg",
+        points: [
+          "Pool Construction",
+          "Filtration Systems",
+          "Chemical Balancing",
+          "pH Monitoring",
+          "Algae Prevention",
+          "Pump Maintenance",
+          "Filter Replacement",
+          "Swimming Pool AMC",
+          "Safety Inspections",
+          "On-demand Visits"
+        ]
+      },
+      {
+        title: "AHU / FCU Service",
+        image: "assets/ahu-fcu.jpg",
+        points: [
+          "AHU Coil Cleaning",
+          "Filter Replacement",
+          "Motor Inspection",
+          "Drain Tray Cleaning",
+          "Odor Removal",
+          "Air Flow Testing",
+          "Duct Disinfection",
+          "Energy Optimization",
+          "Noise Reduction",
+          "Comprehensive AMC"
+        ]
+      },
+      {
+        title: "Solid Waste Management",
+        image: "assets/waste.jpg",
+        points: [
+          "Waste Segregation Setup",
+          "Dry & Wet Collection",
+          "On-site Composting",
+          "Recyclable Material Sorting",
+          "Sanitary Disposal",
+          "Odor Control",
+          "Plastic Management",
+          "Bulk Waste Solutions",
+          "Municipal Guidelines",
+          "Sustainability Goals"
+        ]
+      },
+      {
+        title: "Security & Surveillance",
+        image: "assets/camera1.jpg",
+        points: [
+          "Waste Segregation Setup",
+          "Dry & Wet Collection",
+          "On-site Composting",
+          "Recyclable Material Sorting",
+          "Sanitary Disposal",
+          "Odor Control",
+          "Plastic Management",
+          "Bulk Waste Solutions",
+          "Municipal Guidelines",
+          "Sustainability Goals"
+        ]
+      },
+      {
+        title: "Fire Alarm & Detection",
+        image: "assets/alarm.jpg",
+        points: [
+          "Waste Segregation Setup",
+          "Dry & Wet Collection",
+          "On-site Composting",
+          "Recyclable Material Sorting",
+          "Sanitary Disposal",
+          "Odor Control",
+          "Plastic Management",
+          "Bulk Waste Solutions",
+          "Municipal Guidelines",
+          "Sustainability Goals"
+        ]
+      }
+    ];
+
+    function openModal(index) {
+      const service = servicesData[index];
+      modalTitle.innerText = service.title;
+      modalImage.src = service.image;
+      modalList.innerHTML = service.points.map(point => `<li>${point}</li>`).join('');
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) closeModal();
     }
   </script>
 </body>
