@@ -1,390 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Univora</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    :root {
-      --bg-day: #00cfff;
-      --text-day: #000;
-      --bg-night: #020024;
-      --text-night: #fff;
-      --card-bg: #fff;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-day);
-      color: var(--text-day);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .dark-mode {
-      background-color: var(--bg-night);
-      color: var(--text-night);
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      background-color: inherit;
-      z-index: 1000;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-section img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    .theme-toggle {
-      font-size: 28px;
-      cursor: pointer;
-      position: relative;
-      z-index: 100;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 50px 20px 20px;
-      background: #fff;
-    }
-
-    .hero h1 {
-      margin: 10px 0;
-    }
-
-    .slideshow {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      position: relative;
-    }
-
-    .slideshow img {
-      width: 100%;
-      display: none;
-    }
-
-    .slideshow img.active {
-      display: block;
-    }
-
-    .enjoy {
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin: 10px 0 5px;
-    }
-
-    .card p {
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .card button {
-      margin-top: auto;
-      padding: 10px 15px;
-      border: none;
-      background: #0077ff;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .card button:hover {
-      background: #005ecc;
-    }
-
-    @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo-section">
-      <img src="assets/logo.jpg" alt="Univora Logo">
-      <h2>Univora</h2>
+<section id="industries">
+  <h2>Industries We Serve</h2>
+  <div class="grid">
+    <div class="card" onclick="openIndustryModal(0)">
+      <img src="assets/course.jpg" alt="Residential Complexes" class="industry-img" />
+      <p>Residential Complexes</p>
     </div>
-    <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
-  </header>
+    <div class="card" onclick="openIndustryModal(1)">
+      <img src="assets/hospital.jpg" alt="Hospitals" class="industry-img" />
+      <p>Hospitals</p>
+    </div>
+    <div class="card" onclick="openIndustryModal(2)">
+      <img src="assets/hotels.jpg" alt="Hotels & Resorts" class="industry-img" />
+      <p>Hotels & Resorts</p>
+    </div>
+    <div class="card" onclick="openIndustryModal(3)">
+      <img src="assets/factories.jpg" alt="Factories" class="industry-img" />
+      <p>Factories</p>
+    </div>
+  </div>
 
-  <!-- Hero Section -->
-  <header id="hero">
-    <div class="hero-image" style="background-image: url('assets/hero.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/hospital.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/camera1.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/cooling.jpg');"></div>
-    <div class="hero-image" style="background-image: url('assets/water-wastewatertreatment.jpg');"></div>
-
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1>SKS Hitech Solution LLP</h1>
-        <p>Welcome to SKS Hitech Solution LLP, a leading provider of advanced<br>
-        sewage treatment solutions — dedicated to transforming wastewater<br>
-        into clean, reusable resources for industries and communities.</p>
-        <a href="#contact" class="cta-btn">Get a Free Quote</a>
+  <div id="industryModal" class="industry-modal">
+    <div class="industry-modal-content">
+      <span class="industry-close" onclick="closeIndustryModal()">&times;</span>
+      <img id="industryModalImg" src="" alt="" class="industry-img" />
+      <h3 id="industryModalTitle"></h3>
+      <p id="industryModalDesc"></p>
+      <div class="audio-player">
+        <audio id="industryAudio" src="assets/theme.mp3"></audio>
+        <button id="playPauseBtn">▶️</button>
+        <span id="audioTime">0:00</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="dots">
-      <div class="dot" onclick="showSlide(0)"></div>
-      <div class="dot" onclick="showSlide(1)"></div>
-      <div class="dot" onclick="showSlide(2)"></div>
-      <div class="dot" onclick="showSlide(3)"></div>
-      <div class="dot" onclick="showSlide(4)"></div>
-    </div>
-  </header>
 <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  .industry-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
 
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
+  .industry-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+  }
 
-    #hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
+  .industry-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-    .hero-image {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-      transform: scale(1);
-    }
+  .audio-player {
+    margin-top: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 
-    .hero-image.active {
-      opacity: 1;
-      transform: scale(1.05);
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    }
-
-    .hero-content {
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-btn {
-      background-color: #ffcc00;
-      color: #002f5f;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #e6b800;
-    }
-
-    .dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      gap: 10px;
-    }
-
-    .dot {
-      height: 12px;
-      width: 12px;
-      background-color: #fff;
-      border-radius: 50%;
-      opacity: 0.5;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .dot.active {
-      opacity: 1;
-      transform: scale(1.2);
-      background-color: #ffcc00;
-    }
+  #playPauseBtn {
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
 </style>
 
-  <section class="enjoy">
-    <h2>ENJOY</h2>
-    <p>Comprehensive MEP solutions for all your needs</p>
-    <div class="card-container">
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-
-      <div class="card">
-        <img src="sample.jpg" alt="Strooma">
-        <h3>Strooma - Movies & Shows</h3>
-        <p>All your favorite movies & shows, from across the world. 📺 Netflix, Prime, Hotstar...</p>
-        <button onclick="location.href='strooma.html'">Explore</button>
-      </div>
-      <!-- Add other 7 cards similarly -->
-    </div>
-  </section>
-
-  <script>
-    const slides = document.querySelectorAll('.hero-image');
-  const dots = document.querySelectorAll('.dot');
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      dots[i].classList.remove('active');
-    });
-
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    currentSlide = index;
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  showSlide(currentSlide); // Show first slide
-  setInterval(nextSlide, 5000); // Change every 5 seconds
-
-    function toggleTheme() {
-      const body = document.body;
-      const toggle = document.querySelector('.theme-toggle');
-      body.classList.toggle("dark-mode");
-      toggle.textContent = body.classList.contains("dark-mode") ? "🌙" : "🌞";
+<script>
+  const industryData = [
+    {
+      title: "Residential Complexes",
+      img: "assets/Residential Complexes.jpg",
+      desc: "Notices and updates related to Residential Complexes."
+    },
+    {
+      title: "Hospitals",
+      img: "assets/hospital.jpg",
+      desc: "Notices and updates related to Hospitals."
+    },
+    {
+      title: "Hotels & Resorts",
+      img: "assets/hotels.jpg",
+      desc: "Notices and updates related to Hotels & Resorts."
+    },
+    {
+      title: "Factories",
+      img: "assets/factories.jpg",
+      desc: "Notices and updates related to Factories."
     }
-  </script>
-</body>
-</html>
+  ];
+
+  function openIndustryModal(index) {
+    const modal = document.getElementById("industryModal");
+    const data = industryData[index];
+    document.getElementById("industryModalImg").src = data.img;
+    document.getElementById("industryModalTitle").innerText = data.title;
+    document.getElementById("industryModalDesc").innerText = data.desc;
+    modal.style.display = "block";
+  }
+
+  function closeIndustryModal() {
+    document.getElementById("industryModal").style.display = "none";
+    document.getElementById("industryAudio").pause();
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("industryModal");
+    if (event.target === modal) {
+      closeIndustryModal();
+    }
+  }
+
+  document.getElementById("playPauseBtn").addEventListener("click", function () {
+    const audio = document.getElementById("industryAudio");
+    const time = document.getElementById("audioTime");
+    if (audio.paused) {
+      audio.play();
+      this.innerText = "⏸️";
+    } else {
+      audio.pause();
+      this.innerText = "▶️";
+    }
+  });
+
+  document.getElementById("industryAudio").addEventListener("timeupdate", function () {
+    const time = document.getElementById("audioTime");
+    const minutes = Math.floor(this.currentTime / 60);
+    const seconds = Math.floor(this.currentTime % 60).toString().padStart(2, '0');
+    time.innerText = `${minutes}:${seconds}`;
+  });
+</script>

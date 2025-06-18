@@ -21,6 +21,9 @@
       --clients-bg-day:#fef8e7;
       --clients-bg-night:#1b1f3b;
       --social-card-bg-night:#2d3250;
+      --modal-content-bg-night:#1b1f3b;
+      --industry-popup-content-bg-night:#1b1f3b;
+      --music-player-bg-night:#2d3250;
       
     }
 
@@ -52,6 +55,15 @@
     }
     body.night-mode .social-card{
       background: var(--social-card-bg-night)
+    }
+    body.night-mode .modal-content{
+      background : var(--modal-content-bg-night)
+    }
+    body.night-mode .industry-popup-content{
+      background: var(--industry-popup-content-bg-night);
+    }
+    body.night-mode .music-player{
+      background: var(--music-player-bg-night)
     }
 
     header {
@@ -123,6 +135,7 @@
   margin: 10px 0 5px;
 }
 .card p {
+  
   font-size: 14px;
   margin-bottom: 15px;
 }
@@ -448,6 +461,7 @@
 }
 
 .social-box {
+ 
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
@@ -456,6 +470,7 @@
 }
 
 .social-card {
+  border: 1px solid #ddd;
   background: #ffffff;
   width: 160px;
   padding: 20px;
@@ -501,6 +516,36 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+.music-player {
+   border: 1px solid #ddd;
+   border-radius:50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#playPauseBtn {
+  background: #2ecc71;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#playPauseBtn:hover {
+  background: #005ecc;
+}
+#progressBar {
+  width: 100%;
+  max-width: 300px;
+}
+
 
   </style>
 </head>
@@ -606,7 +651,14 @@
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <img id="modalImage" src="" alt="service Image">
     <h3 id="modalTitle"></h3>
-    <ul id="modalList"></ul>
+    <!-- Music Box -->
+<div class="music-player">
+  <audio id="modalAudio" src="assets/theme-music/edit song movies 2.m4a"></audio>
+  <button id="playPauseBtn" onclick="togglePlay()">▶️</button>
+  <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+  <input type="range" id="progressBar" value="0" max="100">
+</div><br>
+<ul id="modalList"></ul>
   </div>
 </div>
 
@@ -639,7 +691,7 @@
   </div>
 </section>
 
-<!-- Industry Modal -->
+
 <div id="industryPopup" class="industry-popup">
   <div class="industry-popup-content">
     <span class="industry-close" onclick="closeIndustryPopup()">&times;</span>
@@ -647,6 +699,8 @@
     <p id="industryText">Here are the detailed notices or description for the selected industry.</p>
   </div>
 </div>
+
+
 
 
 
@@ -775,54 +829,81 @@ const modalList = document.getElementById("modalList");
 
 const servicesData = [
   {
-    title: "Water / Waste Water Treatment",
+    title: "Strooma - Movies & Shows",
     image: "assets/strooma.jpg",
-    points: ["STP & ETP Design", "Installation & Commissioning", "24/7 Maintenance Support"]
+    points: ["Watch Netflix, Prime, Hotstar & more"],
+    audio: "assets/theme-music/edit song movies 2.m4a"
   },
   {
-    title: "Cooling / Boiler Water Treatment",
-    image: "assets/groovia.jpg",
-    points: ["Chemical Dosing Systems", "Boiler Descaling", "Cooling Tower Management"]
+    title: "Groovia - Music & Audio",
+    image: "assets/song.jpg",
+    points: ["Top charts, albums & mixes"],
+    audio: "assets/songs/groovia.mp3"
   },
   {
-    title: "RO / UF System",
-    image: "assets/mentora.jpg",
-    points: ["RO Plant Installation", "UF System Design", "Membrane Cleaning"]
+    title: "Studora - Study Tools",
+    image: "assets/study.jpg",
+    points: ["Notes, PDFs, study materials"],
+    audio: "assets/songs/studora.mp3"
   },
   {
-    title: "Swimming Pool Services",
-    image: "assets/skillora-1-2.jpg",
-    points: ["Pool Construction", "Filtration Systems", "Chemical Balancing"]
+    title: "Skillora - Learn Skills",
+    image: "assets/skillora-1.jpg",
+    points: ["Courses, practicals & certifications"],
+    audio: "assets/songs/skillora.mp3"
   },
   {
-    title: "AHU / FCU Service",
-    image: "assets/notes.jpg",
-    points: ["AHU Coil Cleaning", "Filter Replacement", "Motor Inspection"]
+    title: "Notora - Smart Notes",
+    image: "assets/notora.jpg",
+    points: ["Quick note-taking & organizing"],
+    audio: "assets/songs/notora.mp3"
   },
   {
-    title: "Solid Waste Management",
-    image: "assets/stumpa.jpg",
-    points: ["Waste Segregation Setup", "Dry & Wet Collection", "On-site Composting"]
+    title: "Crickora - Live Cricket",
+    image: "assets/cricket.jpg",
+    points: ["Live scores, commentary, highlights"],
+    audio: "assets/songs/crickora.mp3"
   },
   {
-    title: "Security & Surveillance",
-    image: "assets/game.jpg",
-    points: ["Live Monitoring", "Motion Alerts", "Night Vision"]
+    title: "Gamora - Cloud Gaming",
+    image: "assets/gamora.jpg",
+    points: ["Play AAA games instantly"],
+    audio: "assets/songs/gamora.mp3"
   },
   {
-    title: "Fire Alarm & Detection",
-    image: "assets/premora.jpg",
-    points: ["Smoke Detectors", "Heat Sensors", "Emergency Alarms"]
+    title: "Appora - App Store",
+    image: "assets/app.jpg",
+    points: ["Explore mobile & web apps"],
+    audio: "assets/songs/appora.mp3"
   }
 ];
+
+
+// function openModal(index) {
+//   const service = servicesData[index];
+//   modalTitle.innerText = service.title;
+//   modalImage.src = service.image;
+//   modalList.innerHTML = service.points.map(point => `<li>${point}</li>`).join('');
+//   modal.style.display = "block";
+// }
 
 function openModal(index) {
   const service = servicesData[index];
   modalTitle.innerText = service.title;
   modalImage.src = service.image;
   modalList.innerHTML = service.points.map(point => `<li>${point}</li>`).join('');
+
+  audio.src = service.audio;
+  audio.load();  // Trigger loadedmetadata
+  playPauseBtn.textContent = "▶️";
+  currentTimeEl.textContent = "0:00";
+  durationEl.textContent = "0:00";
+  progressBar.value = 0;
+
   modal.style.display = "block";
 }
+
+
 
 function closeModal() {
   modal.style.display = "none";
@@ -832,6 +913,48 @@ window.onclick = function(event) {
   if (event.target == modal) closeModal();
 };
     
+const audio = new Audio();
+const playPauseBtn = document.getElementById("playPauseBtn");
+const currentTimeEl = document.getElementById("currentTime");
+const durationEl = document.getElementById("duration");
+const progressBar = document.getElementById("progressBar");
+
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? "0" + secs : secs}`;
+}
+
+// Fix begins here 👇
+audio.addEventListener("loadedmetadata", () => {
+  durationEl.textContent = formatTime(audio.duration);
+});
+
+// Update time during playback
+audio.addEventListener("timeupdate", () => {
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+  progressBar.value = audio.currentTime;
+  progressBar.max = audio.duration;
+});
+
+// Button controls
+playPauseBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = "▶️";
+  }
+});
+
+// Progress bar seek
+progressBar.addEventListener("input", () => {
+  audio.currentTime = progressBar.value;
+});
+
+
+
   const industryPopup = document.getElementById("industryPopup");
   const industryHeading = document.getElementById("industryHeading");
   const industryText = document.getElementById("industryText");
