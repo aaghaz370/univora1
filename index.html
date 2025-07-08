@@ -178,6 +178,21 @@
     body.night-mode .cert-card{
       background: var(--cert-card-bg-night)
     }
+    body.night-mode .univora-section-container{
+      background: var(--clients-bg-night);
+    }
+    body.night-mode #univora-purpose-section{
+      background: var(--clients-bg-night);
+    }
+    body.night-mode .univora-card{
+      background: var(--card-bg-night);
+    }
+    body.night-mode .univora-card h2{
+      color:var(--night-text);
+    }
+    body.night-mode .univora-card p{
+      color: var(--night-text);
+    }
 
     header {
       display: flex;
@@ -223,7 +238,7 @@
   justify-content: center;
   margin-top: 30px;
 }
-.card {
+/* .card {
   background: #fff;
   border-radius: 3px;
   padding: 12px;
@@ -233,7 +248,24 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+} */
+ .card {
+  cursor: pointer;
+  align-items: center;
+  background: #fff;
+  border-radius: 3px;
+  opacity: 0;
+  transform: translateY(30px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
 .card:hover {
   transform: translateY(-5px);
 }
@@ -266,6 +298,7 @@
  transform:scale(1.05);
  box-shadow: 0 6px 18px rgba(0, 194, 168, 0.5);
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -710,6 +743,102 @@
   </div>
 </div>
 
+<!-- ✅ Paste this inside <body> tag where you want the section -->
+
+<section id="univora-purpose-section">
+  <div class="univora-section-container">
+    <div class="univora-box">
+      <div class="univora-card">
+        <h2>🎯 Our Mission</h2>
+        <p>To empower every individual by providing access to quality content for free — especially for those who cannot afford premium platforms. Our goal is to ensure learning and entertainment is never out of reach.</p>
+      </div>
+      <div class="univora-card">
+        <h2>📚 Educational Purpose</h2>
+        <p>All content here is solely for educational and awareness purposes. We do not intend to harm any original platform. If you can afford the original service, we encourage you to support them directly.</p>
+      </div>
+    </div>
+    <div class="univora-box">
+      <div class="univora-card">
+        <h2>🧑‍💻 Our Team</h2>
+        <p>I am a solo creator behind everything on this platform — from movie uploads, bug fixes, music app maintenance, lectures & course uploads, to game development and note sharing. I handle all tasks personally due to trust concerns.</p>
+      </div>
+      <div class="univora-card">
+        <h2>🚫 Beware of Fake Sites</h2>
+        <p>Many fake sites exist using our name. These may misuse your data (passwords, bank info, etc.). Always access our platform only via <strong>univora1.netlify.app</strong>. If our domain ever changes, official updates will be posted here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Add this in <head> or your style.css -->
+<style>
+#univora-purpose-section {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #f8fbff, #eef4fa);
+  color: #1b1f3b;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.univora-section-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.univora-box {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.univora-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.univora-card h2 {
+  font-size: 1.6rem;
+  color: #003A8D;
+  margin-bottom: 15px;
+}
+
+.univora-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.univora-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ Animation when in view */
+.univora-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+@media (max-width: 768px) {
+  .univora-section-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+</style>
+
+
+
 
 
 
@@ -1152,7 +1281,33 @@ function scrollLeft() {
 rightArrow.addEventListener("click", scrollRight);
 leftArrow.addEventListener("click", scrollLeft);
 setInterval(scrollRight, 5000);
-  </script>
+
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  // document.querySelectorAll('.univora-card').forEach(card => {
+  //   observer.observe(card);
+  // });
+  document.querySelectorAll('.univora-card, .card').forEach(card => {
+  observer.observe(card);
+});
+
+
+
+  
+  
+</script>
+
+  
 </body>
 </html>
 
