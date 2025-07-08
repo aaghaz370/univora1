@@ -588,19 +588,68 @@
 }
 
 
+.navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.navbar .hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}
+
+
   </style>
 </head>
 <body>
   <header>
+    <nav class="navbar">
     <div class="logo-section">
       <img src="assets/logo1.jpg" alt="Univora Logo">
-      <ul class="nav-links">
-      <li><a href="#indutries"></a></li>
+      <!-- <ul class="nav-links">
+      <li><a href="#indutries"></a></li> -->
       
-    </ul>
+    
       <h2>Univora</h2>
     </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
     <div class="theme-toggle" onclick="toggleTheme()">🌞</div>
+    
+      
+    </nav>
   </header>
 
   <!-- Hero Section -->
