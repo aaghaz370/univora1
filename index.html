@@ -1043,18 +1043,109 @@
 </section> -->
 
 <!-- ✅ Professional Contact Section + Footer with Icons & Boxes -->
-<section id="contact-univora" class="contact-section">
+<!-- <section id="contact-univora" class="contact-section">
   <h2>Contact Us</h2>
   <p>Have a question, feedback or need support? Connect with us directly.</p>
 
   <div class="contact-form">
-    <form action="mailto:aghazafzal82@gmail.com" method="POST" enctype="text/plain">
+    <form action="mailto:univora8@gmail.com" method="POST" enctype="text/plain">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">📩 Send Message</button>
     </form>
-  </div>
+  </div> -->
+  <!-- 📬 Univora Quick Contact Form -->
+<section class="univora-contact-form">
+  <h2>Send Us a Message</h2>
+  <form action="https://formsubmit.co/skshitechsolutionllp@gmail.com" method="POST" id="smart-contact-form">
+    <input type="text" name="name" placeholder="Your Name *" required>
+    <input type="email" name="email" placeholder="Email Address *" required>
+    <input type="tel" name="mobile" placeholder="Mobile Number">
+
+    <select name="service" id="serviceSelect" required>
+      <option value="" disabled selected>Select App or Service</option>
+      <option>Strooma</option>
+      <option>Groovia</option>
+      <option>Gamora</option>
+      <option>Premora</option>
+      <option>Stumpa</option>
+      <option value="Others">Others</option>
+    </select>
+
+    <div id="otherTopicBox" style="display:none;">
+      <input type="text" name="other_topic" placeholder="Please specify your topic">
+    </div>
+
+    <textarea name="message" rows="5" placeholder="Your Message..."></textarea>
+    <button type="submit">📨 Submit</button>
+  </form>
+</section>
+
+<!-- 💅 Contact Form Styling -->
+<style>
+.univora-contact-form {
+  background: #f3f4f6;
+  padding: 3rem 1.5rem;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+.univora-contact-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+.univora-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.univora-contact-form input,
+.univora-contact-form textarea,
+.univora-contact-form select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.univora-contact-form textarea {
+  resize: vertical;
+}
+.univora-contact-form button {
+  padding: 0.8rem;
+  background-color: #4f46e5; /* primary accent */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.univora-contact-form button:hover {
+  background-color: #3730a3; /* secondary accent */
+}
+</style>
+
+<!-- 🧠 JavaScript for conditional 'Others' input -->
+<script>
+  const serviceSelect = document.getElementById('serviceSelect');
+  const otherBox = document.getElementById('otherTopicBox');
+
+  serviceSelect.addEventListener('change', () => {
+    if (serviceSelect.value === 'Others') {
+      otherBox.style.display = 'block';
+    } else {
+      otherBox.style.display = 'none';
+    }
+  });
+</script>
+
 
   <div class="community-boxes">
     <div class="community-card">
@@ -1095,11 +1186,11 @@
   <div class="footer-links">
     <h4>Quick Links</h4>
     <ul>
-      <li><a href="#">🏭 Industries</a></li>
-      <li><a href="#">📚 Courses</a></li>
-      <li><a href="#">🏏 Live Cricket</a></li>
-      <li><a href="#">🌟 Premium Access</a></li>
-      <li><a href="#">📝 Notes & Books</a></li>
+      <li><a href="#hero">🔝 Top</a></li>
+      <li><a href="#industries">📢 Notices</a></li>
+      <li><a href="#univora-purpose-section">📜 Purpose</a></li>
+      <li><a href="https://rolexsir.netlify.app/">🙋🏻‍♂️ Who Am I ?</a></li>
+      
     </ul>
   </div>
 
@@ -1127,7 +1218,7 @@
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-.contact-form form {
+/* .contact-form form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1153,7 +1244,7 @@
 }
 .contact-form button:hover {
   background-color: var(--secondary-accent);
-}
+} */
 
 .community-boxes {
   display: grid;
