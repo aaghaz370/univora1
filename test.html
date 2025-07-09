@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Univora Support</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f0f2f5; color: #333; }
+    .chat-container { max-width: 500px; margin: 40px auto; background: white; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column; }
+    .chat-header { padding: 16px; background: #007bff; color: white; font-size: 18px; font-weight: bold; text-align: center; }
+    .chat-box { flex: 1; overflow-y: auto; padding: 16px; }
+    .message { margin: 12px 0; max-width: 75%; padding: 12px 16px; border-radius: 20px; line-height: 1.4; }
+    .bot { background: #e9ecef; align-self: flex-start; }
+    .user { background: #007bff; color: white; align-self: flex-end; }
+    .option-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .option-btn { background: #f1f1f1; border: none; padding: 10px 14px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
+    .option-btn:hover { background: #007bff; color: white; }
+    .more-btn { background: transparent; border: none; color: #007bff; cursor: pointer; margin-top: 8px; font-size: 14px; text-decoration: underline; }
+    .final-redirect { text-align: center; margin-top: 20px; }
+    .final-redirect a { padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 8px; }
+    .section-title { margin: 20px 0 10px; font-weight: bold; font-size: 15px; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">Univora 24/7 Support</div>
+    <div class="chat-box" id="chat-box">
+      <div class="message bot">👋 Welcome to Univora Support! Please select your language.</div>
+      <div class="option-container" id="lang-options">
+        <button class="option-btn" onclick="selectLanguage('en')">🇬🇧 English</button>
+        <button class="option-btn" onclick="selectLanguage('hi')">🇮🇳 हिन्दी</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chat-box');
+    let selectedLang = 'en';
+
+    const translations = {
+      en: {
+        greet: "Hi there! Select the platform you're facing issues with:",
+        platforms: ["Strooma", "Groovia", "Mentora", "Skillora", "Notora", "Gamora", "Premora", "Stumpa", "Other"],
+        strooma: ["Movies", "Series","other"],
+        stroomaMovies: [
+  "Movie Not Available",
+  "Low Quality or Blurry",
+  "Audio not working",
+  "Subtitles missing or incorrect",
+  "Playback Buffering / Not Playing",
+  "Wrong Language Dubbed",
+  "Duplicate Movie",
+  "Wrong Movie",
+  "Movie Stuck or Frozen",
+  "Movie Crashes App",
+  "Inappropriate Content",
+  "Request New Movie",
+  "Other"
+],
+        stroomaSeries: [
+  "Series Not Available",
+  "Episode Missing",
+  "Episode Out of Order",
+  "Low Quality Video",
+  "Audio Desync / No Audio",
+  "Wrong Subtitle Language",
+  "Series Crashes / Freezes",
+  "Incorrect Title / Thumbnail",
+  "Request New Series",
+  "Other"
+],
+stroomaPlaybackIssues: [
+  "Server error during play",
+  "Video keeps buffering",
+  "App not responding",
+  "Streaming lags on mobile",
+  "Casting to TV not working",
+  "Can't change video quality",
+  "Audio/Video out of sync",
+  "Black screen with audio only",
+  "Other"
+],
+        notListed: "Tap to fill full form at complaint.netlify.app"
+      },
+      hi: {
+        greet: "नमस्ते! जिस प्लेटफ़ॉर्म में समस्या हो उसे चुनें:",
+        platforms: ["Strooma", "Groovia", "Mentora", "Skillora", "Notora", "Gamora", "Premora", "Stumpa", "अन्य"],
+        strooma: ["मूवीज़", "सीरीज़"],
+        stroomaMovies: ["क्वालिटी समस्या", "मूवी उपलब्ध नहीं", "चलाने में दिक्कत", "अन्य"],
+        stroomaSeries: ["सीरीज़ नहीं मिल रही", "चलाने में दिक्कत", "अन्य"],
+        notListed: "शिकायत फॉर्म भरने के लिए tap करें: complaint.netlify.app"
+      }
+    };
+
+    function selectLanguage(lang) {
+      selectedLang = lang;
+      document.getElementById('lang-options').style.display = 'none';
+      appendBot(translations[lang].greet);
+      showOptions(translations[lang].platforms, (platform) => handlePlatform(platform));
+    }
+
+    function handlePlatform(platform) {
+      appendUser(platform);
+      if (platform === 'Strooma') {
+        showOptions(translations[selectedLang].strooma, (cat) => handleStrooma(cat));
+      } else if (platform === 'Other' || platform === 'अन्य') {
+        showForm();
+      } else {
+        appendBot("This platform support is coming soon.");
+        showRedirect();
+      }
+    }
+
+    function handleStrooma(cat) {
+      appendUser(cat);
+      if (cat === 'Movies' || cat === 'मूवीज़') {
+        showOptions(translations[selectedLang].stroomaMovies, () => showRedirect());
+      } else if (cat === 'Series' || cat === 'सीरीज़') {
+        showOptions(translations[selectedLang].stroomaSeries, () => showRedirect());
+      }
+    }
+
+    function showRedirect() {
+      appendBot(translations[selectedLang].notListed);
+      const div = document.createElement('div');
+      div.className = 'final-redirect';
+      div.innerHTML = `<a href="https://complaint.netlify.app" target="_blank">📄 Fill Complaint Form</a>`;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function showForm() {
+      appendBot("Please describe your issue in detail in the form below.");
+      showRedirect();
+    }
+
+    function showOptions(options, callback) {
+      const container = document.createElement('div');
+      container.className = 'option-container';
+      const visible = options.slice(0, 2);
+      const hidden = options.slice(2);
+
+      visible.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => callback(opt);
+        container.appendChild(btn);
+      });
+
+      if (hidden.length > 0) {
+        const moreBtn = document.createElement('button');
+        moreBtn.className = 'more-btn';
+        moreBtn.textContent = '...';
+        moreBtn.onclick = () => {
+          hidden.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.textContent = opt;
+            btn.onclick = () => callback(opt);
+            container.appendChild(btn);
+          });
+          moreBtn.style.display = 'none';
+        };
+        container.appendChild(moreBtn);
+      }
+
+      chatBox.appendChild(container);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function appendBot(text) {
+      const div = document.createElement('div');
+      div.className = 'message bot';
+      div.textContent = text;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function appendUser(text) {
+      const div = document.createElement('div');
+      div.className = 'message user';
+      div.textContent = text;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
