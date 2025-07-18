@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms & Conditions | Univora</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      padding: 50px 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff55;
+    }
+    .terms-container {
+      max-width: 900px;
+      margin: auto;
+    }
+    .accordion-item {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #1a1a2e;
+      box-shadow: 0 0 20px rgba(0,255,255,0.05);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+    .accordion-header {
+      padding: 18px 25px;
+      background: #0f3460;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+      font-size: 20px;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover {
+      background: #1a75ff;
+    }
+    .accordion-header::after {
+      content: '+';
+      position: absolute;
+      right: 25px;
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+    .accordion-item.active .accordion-header::after {
+      content: '−';
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #16213e;
+      transition: max-height 0.5s ease;
+      padding: 0 25px;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 800px;
+      padding: 20px 25px;
+    }
+    .accordion-content p {
+      margin-bottom: 15px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #aaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Terms & Conditions</h1>
+
+  <div class="terms-container">
+    
+    <div class="accordion-item">
+      <div class="accordion-header">1. Introduction & Acceptance</div>
+      <div class="accordion-content">
+        <p>By accessing or using Univora (the "Platform"), you agree to comply with and be bound by these Terms & Conditions. If you do not agree, you may not use the platform.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">2. Eligibility</div>
+      <div class="accordion-content">
+        <p>Use of the platform is allowed only to individuals who are 13 years of age or older. If you are under 18, parental guidance is recommended.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">3. Use of the Platform</div>
+      <div class="accordion-content">
+        <p>The platform provides access to digital content (e.g., apps, media, educational material) for personal and non-commercial use. Misuse or redistribution is strictly prohibited.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">4. Intellectual Property</div>
+      <div class="accordion-content">
+        <p>All content remains the intellectual property of its original creators. Univora does not claim ownership over third-party content and shares only for educational purposes.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">5. Restrictions</div>
+      <div class="accordion-content">
+        <p>You agree not to misuse the platform, reverse-engineer any system, breach security, or impersonate others. Illegal activity will result in termination of access.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">6. Disclaimer</div>
+      <div class="accordion-content">
+        <p>All content is provided "as is" without warranty of any kind. Univora is not responsible for inaccuracies or the unavailability of any content.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">7. Limitation of Liability</div>
+      <div class="accordion-content">
+        <p>In no event shall Univora or its creators be held liable for any damages resulting from the use of the platform, whether direct, indirect, or consequential.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">8. Modification of Terms</div>
+      <div class="accordion-content">
+        <p>We reserve the right to change these terms at any time. Continued use of the platform implies acceptance of the updated terms.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">9. Governing Law</div>
+      <div class="accordion-content">
+        <p>These terms shall be governed and interpreted in accordance with Indian laws. Any disputes shall be resolved under Indian jurisdiction.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">10. Contact Us</div>
+      <div class="accordion-content">
+        <p>If you have questions regarding these Terms & Conditions, contact us at <a href="mailto:univorahelp@gmail.com" style="color:#00ffff;">univorahelp@gmail.com</a>.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 Univora. All rights reserved.
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      header.addEventListener('click', () => {
+        item.classList.toggle('active');
+        items.forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
