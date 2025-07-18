@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs - Univora</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a40, #3a3a9f);
+      color: #fff;
+      min-height: 100vh;
+      padding: 50px 20px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #00ffe5;
+      text-shadow: 0 0 10px #00ffe5;
+    }
+
+    .faq-item {
+      background-color: rgba(255, 255, 255, 0.07);
+      margin-bottom: 15px;
+      padding: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .faq-item:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.02);
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .faq-item.active .answer {
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="question">Univora kya hai? <span>+</span></div>
+      <div class="answer">Univora ek all-in-one digital platform hai jahan aap premium apps, courses, content, tools etc. free mein access kar sakte ho ek educational purpose ke liye.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Kya Univora legal hai? <span>+</span></div>
+      <div class="answer">Univora sirf educational awareness aur testing ke liye resources provide karta hai. Users jo afford kar sakte hain unhe official sources ka hi use karna chahiye.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Kya mujhe account banana padega? <span>+</span></div>
+      <div class="answer">Nahi, aap bina kisi account ke bhi Univora ka content access kar sakte ho. Hum privacy aur simplicity maintain rakhte hain.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Univora ke content safe hai? <span>+</span></div>
+      <div class="answer">Haan, sabhi content ko verify karne ke baad hi upload kiya jata hai. Koi bhi harmful ya illegal file yahan nahi hoti.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Kya Univora paid hai? <span>+</span></div>
+      <div class="answer">Nahi, Univora ka mission hai quality tools & content ko sabke liye free banana. Sab kuch free hai.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Mujhe koi app nahi chal rahi, kya karun? <span>+</span></div>
+      <div class="answer">Aapko ensure karna hai ki aapka device compatible ho. Agar problem continue kare toh feedback form ya contact section mein inform karein.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Website updates kab aate hain? <span>+</span></div>
+      <div class="answer">Har week naye content, apps ya tools add kiye jaate hain. Regular updates ke liye homepage pe announcement section check karein.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Kya Univora mobile friendly hai? <span>+</span></div>
+      <div class="answer">Bilkul! Univora har device pe smooth chalti hai — mobile, tablet aur laptop pe.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Kya mujhe support mil sakta hai agar problem ho? <span>+</span></div>
+      <div class="answer">Haan, aap contact section ke through feedback de sakte hain. Hum maximum 24-48 ghante mein respond karte hain.</div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+        const span = item.querySelector('span');
+        span.textContent = item.classList.contains('active') ? '-' : '+';
+      });
+    });
+  </script>
+</body>
+</html>
