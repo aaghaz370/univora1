@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical Glowing Gallery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0e0e1a;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 50px 20px;
+    }
+
+    .image-block {
+      position: relative;
+      margin: 40px auto;
+      width: 100%;
+      max-width: 900px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .image-block:hover {
+      transform: scale(1.015);
+      box-shadow: 0 0 45px rgba(0, 255, 255, 0.5);
+    }
+
+    .image-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .image-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 140px;
+      color: rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+      z-index: 1;
+      pointer-events: none;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .image-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .image-number {
+        font-size: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Image 1 -->
+  <div class="image-block">
+    <div class="image-number">1</div>
+    <div class="image-inner">
+      <img src="assets/condition/1.png" alt="Image 1">
+    </div>
+  </div>
+
+  <!-- Image 2 -->
+  <div class="image-block">
+    <div class="image-number">2</div>
+    <div class="image-inner">
+      <img src="assets/condition/2.png" alt="Image 2">
+    </div>
+  </div>
+
+  <!-- Image 3 -->
+  <div class="image-block">
+    <div class="image-number">3</div>
+    <div class="image-inner">
+      <img src="assets/condition/3.png" alt="Image 3">
+    </div>
+  </div>
+
+  <!-- Image 4 -->
+  <div class="image-block">
+    <div class="image-number">4</div>
+    <div class="image-inner">
+      <img src="assets/condition/4.png" alt="Image 4">
+    </div>
+  </div>
+
+  <!-- Image 5 -->
+  <div class="image-block">
+    <div class="image-number">5</div>
+    <div class="image-inner">
+      <img src="assets/condition/5.png" alt="Image 5">
+    </div>
+  </div>
+
+  <!-- Image 6 -->
+  <div class="image-block">
+    <div class="image-number">6</div>
+    <div class="image-inner">
+      <img src="assets/condition/6.png" alt="Image 6">
+    </div>
+  </div>
+
+  <!-- Image 7 -->
+  <div class="image-block">
+    <div class="image-number">7</div>
+    <div class="image-inner">
+      <img src="assets/condition/7.png" alt="Image 7">
+    </div>
+  </div>
+
+  <!-- Image 8 -->
+  <div class="image-block">
+    <div class="image-number">8</div>
+    <div class="image-inner">
+      <img src="assets/condition/8.png" alt="Image 8">
+    </div>
+  </div>
+
+  <!-- Image 9 -->
+  <div class="image-block">
+    <div class="image-number">9</div>
+    <div class="image-inner">
+      <img src="assets/condition/9.png" alt="Image 9">
+    </div>
+  </div>
+
+  <!-- Image 10 -->
+  <div class="image-block">
+    <div class="image-number">10</div>
+    <div class="image-inner">
+      <img src="assets/condition/10.png" alt="Image 10">
+    </div>
+  </div>
+
+</body>
+</html>
