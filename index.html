@@ -25,6 +25,7 @@
       background-size: 400% 400%;
       animation: gradientBG 10s ease infinite;
       color: var(--text-light);
+      
     }
 
     @keyframes gradientBG {
@@ -120,14 +121,14 @@
     }
 
     /* card */
-    body {
+    /* body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      /* background: linear-gradient(135deg, #1100ff, #00c9a7, #ff6ec4); */
+      
       background-size: 400% 400%;
       animation: bgAnimation 15s ease infinite;
       color: white;
-    }
+    } */
 
     @keyframes bgAnimation {
       0% { background-position: 0% 50%; }
@@ -303,6 +304,7 @@
 #industries h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 8px #000;
 }
 
 #industries p {
@@ -409,6 +411,7 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+
 .univora-section-container {
   display: flex;
   flex-wrap: wrap;
@@ -423,6 +426,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  /* overflow-x: hidden; */
 }
 
 .univora-card {
@@ -434,6 +438,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   transform: translateY(30px);
+  /* overflow-x:hidden ; */
 }
 
 .univora-card h2 {
@@ -598,6 +603,7 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  
 }
 .univora-contact-form-section.visible {
   opacity: 1;
@@ -654,6 +660,7 @@
   padding: 50px 20px;
   /* background: linear-gradient(135deg, #001F3F, #0074D9); */
   text-align: center;
+  
 }
 
 .community-title {
@@ -662,15 +669,26 @@
   margin-bottom: 40px;
   font-weight: 700;
   animation: fadeInDown 1s ease forwards;
+  text-shadow: 2px 2px 8px #000;
 }
 
-.community-boxes {
+/* .community-boxes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: auto;
+} */
+ .community-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 
 .community-card {
   background: rgba(255, 255, 255, 0.1);
@@ -684,6 +702,8 @@
   position: relative;
   overflow: hidden;
 }
+ 
+
 
 .community-card:hover {
   transform: translateY(-10px);
@@ -696,6 +716,8 @@
   margin-bottom: 15px;
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
 }
+ 
+
 
 .community-card h4 {
   font-size: 1.3rem;
@@ -747,6 +769,7 @@
     font-size: 2rem;
   }
 }
+ 
 
 .custom-footer {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -931,8 +954,15 @@
   </div>
 </div>
 
+
+
 <section id="univora-purpose-section">
+  <h2 style="font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 8px #000; text-align: center;">
+  About Us
+</h2>
+
   <div class="univora-section-container">
+   
     <div class="univora-box">
       <div class="univora-card">
         <h2>🎯 Our Mission</h2>
@@ -1085,9 +1115,9 @@
     <div class="footer-section footer-left">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#hero">Home</a></li>
+        <!-- <li><a href="#serviceModal">Courses</a></li> -->
+        <li><a href="#univora-purpose-section">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="term.html">Terms & Conditions</a></li>
@@ -1360,6 +1390,16 @@ setInterval(scrollImaginationsRight, 5000);
   }, { threshold: 0.3 });
 
   observerContact.observe(document.getElementById('univoraContactForm'));
+
+  // Check for unwanted scrolls and remove
+  window.addEventListener("load", () => {
+    document.querySelectorAll("*").forEach(el => {
+      if (el.scrollHeight > window.innerHeight && el !== document.body && el !== document.documentElement) {
+        el.style.overflow = "visible";
+        el.style.height = "auto";
+      }
+    });
+  });
 
   </script>
 
